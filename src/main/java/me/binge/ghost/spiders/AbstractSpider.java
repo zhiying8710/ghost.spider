@@ -40,17 +40,17 @@ public abstract class AbstractSpider implements Spider {
     public abstract String name();
 
     @Override
-    public void start() {
+    public final void start() {
         if (this.articles == null) {
             throw new NullPointerException("the queue articles is null");
         }
         doStart();
     }
 
-    protected abstract void doStart();
+    protected void doStart(){}
 
     @Override
-    public void stop() {
+    public final void stop() {
         try {
             doStop();
         } finally {
